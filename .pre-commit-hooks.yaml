@@ -93,3 +93,11 @@
   files: '\.go$'
   language: "script"
   description: "Runs `go mod vendor`, requires golang"
+- id: go-revive
+  name: "go-revive"
+  entry: run-go-revive.sh
+  files: '(\.go$)|(\brevive\.toml$)'
+  exclude: '(^|/)vendor/'
+  language: "script"
+  description: "Run 'revive [$ARGS] $FILE' for each staged .go file"
+  pass_filenames: true  
