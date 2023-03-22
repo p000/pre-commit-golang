@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-cmd=(revive)
-if [ -f ".revive.toml" ]; then
-  cmd+=("-config=.revive.toml")
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+if ! command -v revive &> /dev/null ; then
+    echo "revive not installed or available in the PATH" >&2
+    echo "please check https://github.com/mgechev/revive" >&2
+    exit 1
 fi
-ignore_file_pattern_array=(".revive.toml")
-. "$(dirname "${0}")/lib/cmd-files.bash"
+
+exec revive -config .revive.toml -formatter "friendly" ./...
