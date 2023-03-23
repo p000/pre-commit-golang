@@ -96,8 +96,7 @@
 - id: go-revive
   name: "go-revive"
   entry: run-go-revive.sh
-  files: '(\.go$)|(\brevive\.toml$)'
-  exclude: '(^|/)vendor/'
+  types: [go]
+  pass_filenames: false
   language: "script"
   description: "Run 'revive [$ARGS] $FILE' for each staged .go file"
-  pass_filenames: true  
