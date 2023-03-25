@@ -1,8 +1,10 @@
 - id: go-fmt
   name: "go fmt"
-  entry: run-go-fmt.sh
+  entry: sh
   files: '\.go$'
-  language: "script"
+  language: "system"
+  args:
+    - "run-go-fmt.sh"
   description: "Runs `gofmt`, requires golang"
 
 - id: go-imports
